@@ -1,0 +1,24 @@
+/* CSS cho trang quản lý đơn hàng */
+
+/* Định dạng cho bảng đơn hàng */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Định dạng cho các trạng thái đơn hàng */
+.badge.bg-warning {
+    background-color: #f6c23e;
+}
+
+.badge.bg-success {
+    background-color: #1cc88a;
+}
+
+.badge.bg-danger {
+    background-color: #e74a3b;
+}
+
+/* Hiệu ứng khi hover vào nút */
+.btn-info:hover, .btn-danger:hover {
+    opacity: 0.8;
+} 

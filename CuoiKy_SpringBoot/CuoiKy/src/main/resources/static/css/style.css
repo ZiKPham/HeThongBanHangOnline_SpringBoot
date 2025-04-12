@@ -1,0 +1,64 @@
+/* Hero Section */
+.carousel-item {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Featured Products */
+.card {
+    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.price {
+    color: #dc3545;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Categories */
+.category-card {
+    overflow: hidden;
+    height: 300px;
+}
+
+.category-card img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card .card-img-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Features */
+.features i {
+    color: #007bff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .category-card {
+        height: 200px;
+    }
+}

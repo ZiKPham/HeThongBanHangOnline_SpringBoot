@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <title>Thông tin tài khoản</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <th:block layout:fragment="additionalStyles">
+        <link rel="stylesheet" th:href="@{/static/css/account/account.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Menu tài khoản -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Quản lý tài khoản</h5>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a th:href="@{/account}" class="list-group-item list-group-item-action active">
+                                <i class="fas fa-user me-2"></i> Thông tin cá nhân
+                            </a>
+                            <a th:href="@{/account/edit-profile}" class="list-group-item list-group-item-action">
+                                <i class="fas fa-edit me-2"></i> Cập nhật thông tin
+                            </a>
+                            <a th:href="@{/account/change-password}" class="list-group-item list-group-item-action">
+                                <i class="fas fa-key me-2"></i> Đổi mật khẩu
+                            </a>
+                            <a th:href="@{/shop/orders}" class="list-group-item list-group-item-action">
+                                <i class="fas fa-shopping-basket me-2"></i> Đơn hàng của tôi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-9">
+                    <!-- Thông báo -->
+                    <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span th:text="${success}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    
+                    <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span th:text="${error}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    
+                    <!-- Thông tin tài khoản -->
+                    <div class="card">
+                        <div class="card-header bg-white">
+                            <h4 class="mb-0">Thông tin cá nhân</h4>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-md-4 text-center">
+                                    <div class="avatar-container mb-3">
+                                        <img th:src="@{/static/default/images/avatar-default.png}" alt="Avatar" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+                                    </div>
+                                    <h5 th:text="${user.fullname}"></h5>
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                                <tr>
+                                                    <th style="width: 30%;">Tên đăng nhập</th>
+                                                    <td th:text="${user.username}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Họ tên</th>
+                                                    <td th:text="${user.fullname}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <td th:text="${user.email}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Số điện thoại</th>
+                                                    <td th:text="${user.phone}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Địa chỉ</th>
+                                                    <td th:text="${user.address}"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="text-end mt-3">
+                                        <a th:href="@{/account/edit-profile}" class="btn btn-primary">
+                                            <i class="fas fa-edit me-1"></i> Cập nhật thông tin
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

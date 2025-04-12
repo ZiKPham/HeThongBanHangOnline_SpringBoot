@@ -1,0 +1,340 @@
+/* Thanh toán page styles */
+:root {
+  --orange: #FF6B35;
+  --orange-light: #FF8C61;
+  --orange-dark: #E55A2B;
+  --cream: #FFF8F0;
+  --cream-dark: #F5EBE0;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 5px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--cream);
+}
+
+.content-wrapper {
+  background-color: var(--cream);
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  border: none;
+  background-color: var(--orange) !important;
+}
+
+.payment-section {
+  background-color: white;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.payment-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.payment-header {
+  background-color: var(--orange);
+  color: white;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  color: var(--orange);
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.payment-header h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.payment-body {
+  padding: 1.5rem;
+}
+
+.payment-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--orange);
+  background-color: rgba(255, 107, 53, 0.1);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.payment-section:hover .payment-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.payment-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.payment-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  background-color: var(--orange);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-bottom: none;
+}
+
+.card-header h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.alert-success {
+  background-color: rgba(25, 135, 84, 0.1);
+  border-color: #198754;
+  color: #155724;
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.alert-info {
+  background-color: rgba(255, 107, 53, 0.05);
+  border-left: 4px solid var(--orange);
+  color: var(--orange-dark);
+}
+
+.wallet-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.wallet-logo {
+  height: 60px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.wallet-card:hover .wallet-logo {
+  transform: scale(1.1);
+}
+
+.bank-table {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.bank-table th {
+  background-color: var(--cream-dark);
+  color: var(--orange-dark);
+  font-weight: 600;
+}
+
+.bank-table td {
+  vertical-align: middle;
+}
+
+.rounded-circle {
+  transition: transform 0.3s ease;
+}
+
+.rounded-circle:hover {
+  transform: scale(1.1);
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.bg-primary {
+  background-color: var(--orange) !important;
+}
+
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.text-primary {
+  color: var(--orange) !important;
+}
+
+.text-success {
+  color: #198754 !important;
+}
+
+code {
+  background-color: rgba(255, 107, 53, 0.1);
+  color: var(--orange-dark);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .payment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+.payment-card-img {
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.payment-card:hover .payment-card-img {
+  transform: translateY(-5px);
+}
+
+.fee-info {
+  background-color: rgba(255, 107, 53, 0.05);
+  border-left: 3px solid var(--orange);
+  padding: 10px 15px;
+  border-radius: 0.5rem;
+  color: var(--orange-dark);
+  font-size: 14px;
+}
+
+.domestic-bank-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--orange);
+  background-color: rgba(255, 107, 53, 0.1);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.payment-card:hover .domestic-bank-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* New styles for payment methods */
+.credit-card-row {
+  margin-top: 20px;
+}
+
+.payment-method-box {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 107, 53, 0.1);
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment-method-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.payment-method-header {
+  background-color: var(--orange);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+}
+
+.payment-method-body {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 50px);
+}
+
+.card-logos {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-top: 50px;
+}
+
+.card-logo-item {
+  text-align: center;
+}
+
+.bank-icon-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.bank-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--orange);
+  background-color: rgba(255, 107, 53, 0.1);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  transition: transform 0.3s ease;
+}
+
+.payment-method-box:hover .bank-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.fee-label {
+  background-color: rgba(255, 107, 53, 0.05);
+  border-left: 3px solid var(--orange);
+  padding: 10px 15px;
+  border-radius: 0.5rem;
+  color: var(--orange-dark);
+  font-size: 14px;
+  margin-top: auto;
+} 

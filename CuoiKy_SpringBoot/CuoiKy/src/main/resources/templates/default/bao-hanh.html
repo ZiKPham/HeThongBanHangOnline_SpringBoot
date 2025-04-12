@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách bảo hành - Laptop Store</title>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/static/default/css/bao-hanh.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container my-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-shield-alt fa-2x me-3"></i>
+                        <h2 class="mb-0">Chính sách bảo hành</h2>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row mb-4">
+                        <div class="col-md-12">
+                            <div class="alert alert-custom bg-light">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-info-circle text-info fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-info">Cam kết chất lượng</h5>
+                                        <p class="mb-0">Laptop Store cam kết bảo hành đầy đủ cho tất cả sản phẩm chính hãng. Chúng tôi luôn đặt sự hài lòng của khách hàng lên hàng đầu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="policy-section">
+                        <div class="policy-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4 class="text-primary">1. Thời gian bảo hành</h4>
+                        <p>Laptop Store cam kết bảo hành cho tất cả sản phẩm laptop trong thời gian:</p>
+                        <div class="row g-3 ms-2">
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-laptop fa-3x text-primary mb-3"></i>
+                                        <h5>Laptop mới</h5>
+                                        <div class="badge bg-primary p-2 mt-2">12 tháng</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                                        <h5>Linh kiện laptop</h5>
+                                        <div class="badge bg-primary p-2 mt-2">06 tháng</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-headphones fa-3x text-primary mb-3"></i>
+                                        <h5>Phụ kiện laptop</h5>
+                                        <div class="badge bg-primary p-2 mt-2">03 tháng</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="policy-section">
+                        <div class="policy-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-primary">2. Điều kiện bảo hành</h4>
+                        <p>Sản phẩm được bảo hành miễn phí nếu đáp ứng các điều kiện sau:</p>
+                        <ul class="list-group list-group-flush ms-2">
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Còn trong thời hạn bảo hành theo quy định
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Có hóa đơn mua hàng từ Laptop Store
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Tem bảo hành, mã seri máy còn nguyên vẹn
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Lỗi phát sinh do nhà sản xuất
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section">
+                        <div class="policy-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h4 class="text-primary">3. Trường hợp không được bảo hành</h4>
+                        <p>Sản phẩm không được bảo hành trong các trường hợp sau:</p>
+                        <ul class="list-group list-group-flush ms-2">
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                                Sản phẩm hết thời hạn bảo hành
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                                Sản phẩm bị hư hỏng do tác động bên ngoài (va đập, rơi, vỡ, cháy, nổ, thiên tai...)
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                                Sản phẩm bị vô nước, ẩm ướt, bị cháy, cong vênh
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                                Sản phẩm có dấu hiệu đã qua sửa chữa bởi đơn vị khác
+                            </li>
+                            <li class="list-group-item border-0 ps-0">
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                                Phụ kiện tiêu hao: pin, adapter (sau 3 tháng), quạt, bàn phím, chuột...
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section">
+                        <div class="policy-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4 class="text-primary">4. Quy trình bảo hành</h4>
+                        <p>Quý khách có thể lựa chọn một trong hai hình thức bảo hành sau:</p>
+                        <div class="row g-3 ms-2">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="rounded-circle bg-primary p-3 me-3">
+                                                <i class="fas fa-store text-white"></i>
+                                            </div>
+                                            <h5 class="mb-0">Bảo hành tại cửa hàng</h5>
+                                        </div>
+                                        <p>Mang sản phẩm trực tiếp đến cửa hàng Laptop Store. Nhân viên kỹ thuật sẽ kiểm tra và xử lý ngay.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="rounded-circle bg-primary p-3 me-3">
+                                                <i class="fas fa-home text-white"></i>
+                                            </div>
+                                            <h5 class="mb-0">Bảo hành tại nhà</h5>
+                                        </div>
+                                        <p>Gọi tổng đài 1900 1234, nhân viên kỹ thuật sẽ đến tận nơi kiểm tra và xử lý (áp dụng nội thành HCM và HN).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="policy-section">
+                        <div class="policy-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="text-primary">5. Thời gian xử lý bảo hành</h4>
+                        <p>Laptop Store cam kết thời gian xử lý bảo hành như sau:</p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5>Đối với lỗi phần mềm</h5>
+                                <p class="text-success fw-bold">Xử lý trong vòng 24h</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Đối với lỗi phần cứng thông thường</h5>
+                                <p class="text-primary fw-bold">3-5 ngày làm việc</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Đối với lỗi phức tạp cần gửi nhà sản xuất</h5>
+                                <p class="text-warning fw-bold">7-15 ngày làm việc</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">Trong trường hợp thời gian bảo hành kéo dài trên 5 ngày, chúng tôi sẽ cung cấp sản phẩm tương đương cho khách hàng sử dụng tạm thời.</p>
+                    </div>
+
+                    <div class="alert alert-info mt-4 d-flex align-items-center shadow-sm">
+                        <i class="fas fa-phone-alt fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Cần hỗ trợ thêm?</h5>
+                            <p class="mb-0">Mọi thắc mắc về chính sách bảo hành, vui lòng liên hệ tổng đài <span class="fw-bold">1900 1234</span> hoặc email <a href="mailto:contact@laptopstore.com">contact@laptopstore.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách đổi trả - Laptop Store</title>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/static/default/css/doi-tra.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container py-5">
+            
+            <!-- Giới thiệu chính sách -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4">
+                        <div class="card-body">
+                            <h2 class="fw-bold text-primary mb-4">Chính sách đổi trả hàng tại Laptop Store</h2>
+                            <p class="lead">Với mong muốn mang lại sự hài lòng cho quý khách khi mua hàng, chúng tôi có những quy định trong trường hợp quý khách muốn đổi/trả sản phẩm.</p>
+                            <p>Việc đổi/trả sản phẩm chỉ được chấp nhận trong những trường hợp sau:</p>
+                            <div class="alert alert-info">
+                                <p class="mb-0"><strong>Lưu ý:</strong> Để đảm bảo quyền lợi khách hàng và Laptop Store cung cấp dịch vụ tốt nhất, quý khách vui lòng đọc kỹ các điều kiện đổi trả dưới đây.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Điều kiện đổi trả -->
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h3 class="mb-0 fs-5"><i class="fas fa-exchange-alt me-2"></i>Điều kiện đổi sản phẩm</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="policy-list">
+                                <li>Sản phẩm không đúng chủng loại, mẫu mã như quý khách đã đặt.</li>
+                                <li>Sản phẩm không vận hành được, có lỗi từ nhà sản xuất.</li>
+                                <li>Sản phẩm còn nguyên vẹn, không trầy xước, còn đầy đủ hộp, sách hướng dẫn và phụ kiện đi kèm.</li>
+                                <li>Sản phẩm còn trong thời hạn đổi trả (7 ngày kể từ khi nhận hàng).</li>
+                                <li>Có hóa đơn mua hàng tại Laptop Store.</li>
+                            </ul>
+                            <div class="mt-4">
+                                <h5 class="text-primary">Sản phẩm đổi phải đảm bảo:</h5>
+                                <ul class="policy-list-check">
+                                    <li>Chưa qua sử dụng, còn nguyên tem, mác, nguyên vẹn như ban đầu.</li>
+                                    <li>Đầy đủ phụ kiện, quà tặng kèm theo (nếu có).</li>
+                                    <li>Hộp, bao bì không bị móp, rách, vỡ.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h3 class="mb-0 fs-5"><i class="fas fa-undo-alt me-2"></i>Điều kiện trả sản phẩm & hoàn tiền</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="policy-list">
+                                <li>Sản phẩm bị lỗi từ phía nhà sản xuất không thể khắc phục được.</li>
+                                <li>Sản phẩm không đúng với thông tin mô tả và quảng cáo trên website.</li>
+                                <li>Sản phẩm còn nguyên vẹn, không trầy xước, còn đầy đủ hộp, sách hướng dẫn và phụ kiện đi kèm.</li>
+                                <li>Sản phẩm còn trong thời hạn trả (3 ngày kể từ khi nhận hàng).</li>
+                                <li>Có hóa đơn mua hàng tại Laptop Store.</li>
+                            </ul>
+                            <div class="mt-4">
+                                <h5 class="text-danger">Các trường hợp không áp dụng:</h5>
+                                <ul class="policy-list-times">
+                                    <li>Sản phẩm đã qua sử dụng, bị trầy xước, hư hỏng do người sử dụng.</li>
+                                    <li>Sản phẩm đã hết thời hạn đổi trả theo quy định.</li>
+                                    <li>Sản phẩm không còn đầy đủ hộp, sách hướng dẫn và phụ kiện đi kèm.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quy trình đổi trả -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="border-bottom pb-3 mb-4">Quy trình đổi trả sản phẩm</h2>
+                </div>
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 text-center mb-4 mb-md-0">
+                                    <div class="process-step">
+                                        <div class="process-icon">
+                                            <i class="fas fa-headset"></i>
+                                        </div>
+                                        <h5 class="mt-3">Bước 1</h5>
+                                        <p>Liên hệ với bộ phận CSKH qua hotline 1900 1234 hoặc email</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center mb-4 mb-md-0">
+                                    <div class="process-step">
+                                        <div class="process-icon">
+                                            <i class="fas fa-clipboard-check"></i>
+                                        </div>
+                                        <h5 class="mt-3">Bước 2</h5>
+                                        <p>Nhân viên xác nhận thông tin và kiểm tra điều kiện đổi trả</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center mb-4 mb-md-0">
+                                    <div class="process-step">
+                                        <div class="process-icon">
+                                            <i class="fas fa-box"></i>
+                                        </div>
+                                        <h5 class="mt-3">Bước 3</h5>
+                                        <p>Đóng gói sản phẩm và gửi về theo hướng dẫn</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <div class="process-step">
+                                        <div class="process-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <h5 class="mt-3">Bước 4</h5>
+                                        <p>Nhận sản phẩm mới hoặc hoàn tiền theo chính sách</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chi phí đổi trả và thời gian xử lý -->
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-success text-white py-3">
+                            <h3 class="mb-0 fs-5"><i class="fas fa-money-bill-wave me-2"></i>Chi phí đổi trả</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Trường hợp</th>
+                                            <th>Chi phí</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lỗi từ nhà sản xuất</td>
+                                            <td class="text-success">Miễn phí</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Không đúng mẫu mã, chủng loại</td>
+                                            <td class="text-success">Miễn phí</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Khách hàng đổi ý, muốn đổi sản phẩm khác</td>
+                                            <td>Phí vận chuyển hai chiều</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hoàn trả sản phẩm</td>
+                                            <td>Phí hoàn trả (5% giá trị đơn hàng)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="alert alert-success mt-3 mb-0">
+                                <p class="mb-0"><strong>Lưu ý:</strong> Đối với sản phẩm lỗi do nhà sản xuất, khách hàng được miễn phí đổi trả hoặc bảo hành theo quy định.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-info text-white py-3">
+                            <h3 class="mb-0 fs-5"><i class="fas fa-clock me-2"></i>Thời gian xử lý</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Quy trình</th>
+                                            <th>Thời gian</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Xác nhận yêu cầu đổi trả</td>
+                                            <td>Trong vòng 24 giờ</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kiểm tra sản phẩm đổi trả</td>
+                                            <td>1-2 ngày làm việc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gửi sản phẩm thay thế</td>
+                                            <td>2-3 ngày làm việc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hoàn tiền</td>
+                                            <td>5-7 ngày làm việc</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="alert alert-info mt-3 mb-0">
+                                <p class="mb-0"><strong>Lưu ý:</strong> Thời gian xử lý có thể thay đổi tùy thuộc vào tình trạng sản phẩm và khoảng cách địa lý.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            </div>
+            
+           
+        </div>
+    </div>
+</body>
+</html>

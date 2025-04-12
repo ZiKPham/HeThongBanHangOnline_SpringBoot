@@ -1,0 +1,92 @@
+.user-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #4e73df;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 48px;
+    margin: 0 auto 20px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.user-info-label {
+    font-weight: bold;
+    color: #4e73df;
+}
+
+.user-detail-section {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: box-shadow 0.3s;
+}
+
+.user-detail-section:hover {
+    box-shadow: 0 0.3rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.user-detail-section h4 {
+    margin-bottom: 20px;
+    color: #5a5c69;
+    border-bottom: 1px solid #e3e6f0;
+    padding-bottom: 10px;
+}
+
+.info-row {
+    margin-bottom: 15px;
+    transition: background-color 0.2s;
+    padding: 8px 0;
+    border-radius: 4px;
+}
+
+.info-row:hover {
+    background-color: #f8f9fc;
+}
+
+/* Nút chỉnh sửa */
+.btn-primary {
+    background-color: #4e73df;
+    border-color: #4e73df;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+    transform: translateY(-2px);
+    box-shadow: 0 0.3rem 0.65rem rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger {
+    transition: all 0.3s;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.3rem 0.65rem rgba(0, 0, 0, 0.15);
+}
+
+/* Badge styles */
+.badge {
+    padding: 0.4em 0.6em;
+    font-size: 85%;
+}
+
+.badge-success {
+    background-color: #1cc88a;
+}
+
+.badge-danger {
+    background-color: #e74a3b;
+} 

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức công nghệ - Laptop Store</title>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/static/default/css/news-tech.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container py-5">
+            <!-- Banner tin tức -->
+            <div class="tech-news-banner mb-5">
+                <div class="position-relative rounded overflow-hidden">
+                    <img th:src="@{/default/images/banner-blog.jpg}" alt="Tin tức công nghệ" class="w-100" style="height: 350px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.6);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="text-white fw-bold">Tin tức công nghệ</h1>
+                                    <p class="text-white-50 fs-5">Cập nhật những thông tin mới nhất về công nghệ và laptop</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tin tức nổi bật -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="border-bottom pb-3 mb-4">Tin tức nổi bật</h2>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm overflow-hidden mb-4">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src="https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg" alt="Apple MacBook" class="img-fluid h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <span class="badge bg-primary mb-2">Tin mới</span>
+                                    <h3 class="card-title">MacBook với công nghệ mới nhất: Thiết kế tinh tế, hiệu suất cao</h3>
+                                    <p class="card-text flex-grow-1">Dòng MacBook mới được trang bị công nghệ mới nhất, mang lại trải nghiệm người dùng tuyệt vời với hiệu suất vượt trội và thời lượng pin đáng kinh ngạc.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="text-muted small">
+                                            <i class="far fa-calendar-alt me-1"></i> 15/03/2024
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://cdn.pixabay.com/photo/2018/03/27/00/50/child-3264751_1280.jpg" alt="Gaming Laptop" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Phần cứng</span>
+                            <h4 class="card-title">Laptop Gaming mới với hiệu suất đột phá</h4>
+                            <p class="card-text">Dòng laptop gaming mới mang đến hiệu năng đồ họa vượt trội và khả năng xử lý AI tiên tiến cho trải nghiệm chơi game tốt nhất.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 10/03/2024</small>
+                                <a href="#" class="btn btn-sm btn-link text-primary p-0">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tin tức mới nhất -->
+            <h2 class="border-bottom pb-3 mb-4">Tin tức mới nhất</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                <!-- Tin 1 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://cdn.pixabay.com/photo/2017/05/09/13/33/laptop-2298286_1280.png" alt="AMD Ryzen" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">CPU</span>
+                            <h5 class="card-title">Công nghệ CPU mới: Hiệu năng đa nhân vượt trội</h5>
+                            <p class="card-text">Dòng CPU mới hứa hẹn mang đến hiệu năng đa nhân vượt trội với mức tiêu thụ điện năng thấp hơn.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 05/03/2024</small>
+                                <a href="#" class="btn btn-sm btn-link text-primary p-0">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tin 2 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901_1280.jpg" alt="Windows" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <span class="badge bg-info text-dark mb-2">Phần mềm</span>
+                            <h5 class="card-title">Hệ điều hành mới với giao diện được cải tiến</h5>
+                            <p class="card-text">Phiên bản hệ điều hành mới dự kiến sẽ ra mắt với giao diện hoàn toàn mới và nhiều tính năng AI tích hợp sâu.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 28/02/2024</small>
+                                <a href="#" class="btn btn-sm btn-link text-primary p-0">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tin 3 -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/27/07/12/apple-1282241_1280.jpg" alt="SSD" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Lưu trữ</span>
+                            <h5 class="card-title">Công nghệ lưu trữ mới với tốc độ siêu nhanh</h5>
+                            <p class="card-text">Công nghệ SSD mới nhất đạt tốc độ đọc siêu nhanh, mang đến khả năng xử lý dữ liệu vượt trội.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 22/02/2024</small>
+                                <a href="#" class="btn btn-sm btn-link text-primary p-0">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mẹo hay và hướng dẫn -->
+            <h2 class="border-bottom pb-3 mb-4">Mẹo hay và hướng dẫn</h2>
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1512386233331-f023884a92e8" alt="Laptop Gaming" class="img-fluid h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body h-100 d-flex flex-column">
+                                    <h5 class="card-title">5 cách tăng hiệu suất cho laptop gaming</h5>
+                                    <p class="card-text flex-grow-1">Khám phá các cách đơn giản giúp tăng hiệu suất cho laptop gaming mà không cần nâng cấp phần cứng.</p>
+                                    <a href="#" class="btn btn-sm btn-link text-primary p-0 align-self-start">Đọc hướng dẫn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d" alt="Bảo vệ laptop" class="img-fluid h-100" style="object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body h-100 d-flex flex-column">
+                                    <h5 class="card-title">Cách bảo vệ laptop khỏi quá nóng</h5>
+                                    <p class="card-text flex-grow-1">Tìm hiểu nguyên nhân gây quá nóng cho laptop và các biện pháp hiệu quả để ngăn chặn hiện tượng này.</p>
+                                    <a href="#" class="btn btn-sm btn-link text-primary p-0 align-self-start">Đọc hướng dẫn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Đăng ký nhận tin -->
+            <div class="bg-light p-4 rounded-3 shadow-sm mb-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h4>Đăng ký nhận tin tức công nghệ mới nhất</h4>
+                        <p class="text-muted mb-lg-0">Cập nhật thông tin về laptop và công nghệ mới nhất qua email.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email của bạn">
+                            <button class="btn btn-primary" type="button">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

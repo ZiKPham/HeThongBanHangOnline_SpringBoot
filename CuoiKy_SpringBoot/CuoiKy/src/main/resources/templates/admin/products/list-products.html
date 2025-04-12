@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <title>Quản lý sản phẩm</title>
+    <!-- Custom styles -->
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/static/admin/css/list-products.css}">
+    </th:block>
+</head>
+
+<body>
+    <!-- Thêm CSRF Meta -->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    
+    <div layout:fragment="main-content">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Quản lý sản phẩm</h1>
+            <a th:href="@{/admin/products/add}" class="btn btn-primary btn-sm shadow-sm">
+                <i class="fas fa-plus fa-sm"></i> Thêm sản phẩm mới
+            </a>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success != null}">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}">Thao tác thành công!</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${error != null}">
+            <i class="fas fa-exclamation-circle"></i> <span th:text="${error}">Đã xảy ra lỗi!</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Tìm kiếm và lọc</h6>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/admin/products}" method="get" class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="search">Tìm kiếm</label>
+                        <input type="text" class="form-control" id="search" name="search" 
+                               placeholder="Tên sản phẩm..." th:value="${param.search}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="category">Danh mục</label>
+                        <select class="form-control" id="category" name="category">
+                            <option value="">Tất cả danh mục</option>
+                            <option th:each="cat : ${categories}" 
+                                    th:value="${cat.name()}" 
+                                    th:text="${cat.name() == 'LAPTOP_GAMING' ? 'Laptop Gaming' : 'Laptop Văn Phòng'}"
+                                    th:selected="${param.category == cat.name()}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="status">Trạng thái</label>
+                        <select class="form-control" id="status" name="status">
+                            <option value="">Tất cả</option>
+                            <option value="1" th:selected="${param.status == '1'}">Còn hàng</option>
+                            <option value="0" th:selected="${param.status == '0'}">Hết hàng</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="sort">Sắp xếp</label>
+                        <select class="form-control" id="sort" name="sort">
+                            <option value="newest" th:selected="${param.sort == 'newest'}">Mới nhất</option>
+                            <option value="oldest" th:selected="${param.sort == 'oldest'}">Cũ nhất</option>
+                            <option value="price_asc" th:selected="${param.sort == 'price_asc'}">Giá tăng dần</option>
+                            <option value="price_desc" th:selected="${param.sort == 'price_desc'}">Giá giảm dần</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label class="d-block">&nbsp;</label>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-search fa-sm"></i> Tìm kiếm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Products List -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Tùy chọn:</div>
+                        <a class="dropdown-item" href="#" onClick="window.print()">
+                            <i class="fas fa-print fa-sm fa-fw mr-2 text-gray-400"></i>
+                            In danh sách
+                        </a>
+                        <a class="dropdown-item" href="#" id="exportToExcel">
+                            <i class="fas fa-file-excel fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Xuất Excel
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="productsTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="product : ${products}">
+                                <td th:text="${product.id}">1</td>
+                                <td class="text-center">
+                                    <img th:src="${product.imageUrl != null ? product.imageUrl : '/img/default-product.jpg'}" 
+                                         alt="Product Image" class="product-image">
+                                </td>
+                                <td>
+                                    <div th:text="${product.name}">Laptop Name</div>
+                                    <small class="text-muted" th:text="${product.brand}">Brand</small>
+                                </td>
+                                <td th:text="${product.category.name() == 'LAPTOP_GAMING' ? 'Laptop Gaming' : 'Laptop Văn Phòng'}">
+                                    Category
+                                </td>
+                                <td th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' đ'">
+                                    1,000,000 đ
+                                </td>
+                                <td th:text="${product.stockQuantity}">10</td>
+                                <td>
+                                    <span th:if="${product.stockQuantity > 0}" class="badge badge-success">Còn hàng</span>
+                                    <span th:unless="${product.stockQuantity > 0}" class="badge badge-danger">Hết hàng</span>
+                                </td>
+                                <td class="action-buttons">
+                                    <a th:href="@{/admin/products/{id}/edit(id=${product.id})}" 
+                                       class="btn btn-info btn-sm" data-toggle="tooltip" title="Chỉnh sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a th:href="@{/admin/products/{id}/view(id=${product.id})}" 
+                                       class="btn btn-primary btn-sm" data-toggle="tooltip" title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger btn-sm" 
+                                            th:onclick="'deleteProduct(' + ${product.id} + ')'"
+                                            data-toggle="tooltip" title="Xóa">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr th:if="${products.empty}">
+                                <td colspan="8" class="text-center">Không có sản phẩm nào!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div th:if="${totalPages > 1}" class="d-flex justify-content-center mt-4">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                                <a class="page-link" th:href="@{/admin/products(page=${currentPage - 1}, search=${param.search}, category=${param.category}, status=${param.status}, sort=${param.sort})}">
+                                    <span>&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item" th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                                th:classappend="${currentPage == i} ? 'active'">
+                                <a class="page-link" th:href="@{/admin/products(page=${i}, search=${param.search}, category=${param.category}, status=${param.status}, sort=${param.sort})}" th:text="${i + 1}">1</a>
+                            </li>
+                            <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                                <a class="page-link" th:href="@{/admin/products(page=${currentPage + 1}, search=${param.search}, category=${param.category}, status=${param.status}, sort=${param.sort})}">
+                                    <span>&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Scripts -->
+    <th:block layout:fragment="script">
+        <script th:src="@{/static/admin/js/list-products.js}"></script>
+    </th:block>
+</body>
+</html> 

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách vận chuyển - Laptop Store</title>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/static/default/css/van-chuyen.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container my-5">
+            <div class="card shadow-sm mb-5">
+                <div class="card-header bg-primary text-white py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-truck fa-2x me-3"></i>
+                        <h2 class="mb-0">Chính sách vận chuyển</h2>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <i class="fas fa-info-circle fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Cam kết giao hàng nhanh chóng</h5>
+                            <p class="mb-0">Laptop Store cam kết giao hàng đúng thời gian và an toàn đến tận tay khách hàng, với phí vận chuyển cạnh tranh nhất.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-card shadow-sm">
+                        <div class="section-header">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h4 class="mb-0">1. Phí vận chuyển</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Laptop Store áp dụng chính sách phí vận chuyển như sau:</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered pricing-table">
+                                    <thead>
+                                        <tr class="table-light">
+                                            <th style="width: 30%">Khu vực</th>
+                                            <th style="width: 30%">Thời gian giao hàng</th>
+                                            <th style="width: 40%">Phí vận chuyển</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="pricing-row">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                                    <span>Nội thành Hà Nội, TP. HCM</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-clock text-success me-2"></i>
+                                                    <span>1-2 ngày làm việc</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="shipping-badge free">Miễn phí</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="pricing-row">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                                    <span>Các tỉnh, thành phố khác</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-clock text-primary me-2"></i>
+                                                    <span>3-5 ngày làm việc</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="mb-0 ps-3">
+                                                    <li>Đơn hàng < 5 triệu: <span class="shipping-badge paid">50.000đ</span></li>
+                                                    <li>Đơn hàng ≥ 5 triệu: <span class="shipping-badge free">Miễn phí</span></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr class="pricing-row">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-mountain text-warning me-2"></i>
+                                                    <span>Khu vực miền núi, hải đảo</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-clock text-warning me-2"></i>
+                                                    <span>5-7 ngày làm việc</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="mb-0 ps-3">
+                                                    <li>Đơn hàng < 5 triệu: <span class="shipping-badge paid">100.000đ</span></li>
+                                                    <li>Đơn hàng ≥ 5 triệu: <span class="shipping-badge paid">50.000đ</span></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card shadow-sm">
+                        <div class="section-header">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h4 class="mb-0">2. Đơn vị vận chuyển</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Laptop Store hợp tác với các đơn vị vận chuyển uy tín tại Việt Nam để đảm bảo hàng hóa được giao đến tay khách hàng an toàn và đúng hẹn:</p>
+                            <div class="row mt-3">
+                                <div class="col-md-3">
+                                    <div class="shipping-card card mb-3 shadow-sm">
+                                        <div class="card-body text-center p-4">
+                                            <div class="mb-3">
+                                                <i class="fas fa-bolt fa-3x text-warning"></i>
+                                            </div>
+                                            <h5>Giao hàng nhanh</h5>
+                                            <div class="badge bg-warning text-dark mt-2">Giao trong ngày nội thành</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="shipping-card card mb-3 shadow-sm">
+                                        <div class="card-body text-center p-4">
+                                            <div class="mb-3">
+                                                <i class="fas fa-broadcast-tower fa-3x text-danger"></i>
+                                            </div>
+                                            <h5>Viettel Post</h5>
+                                            <div class="badge bg-danger text-white mt-2">Phủ sóng toàn quốc</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="shipping-card card mb-3 shadow-sm">
+                                        <div class="card-body text-center p-4">
+                                            <div class="mb-3">
+                                                <i class="fas fa-paper-plane fa-3x text-success"></i>
+                                            </div>
+                                            <h5>J&T Express</h5>
+                                            <div class="badge bg-success text-white mt-2">Giao hàng nhanh chóng</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="shipping-card card mb-3 shadow-sm">
+                                        <div class="card-body text-center p-4">
+                                            <div class="mb-3">
+                                                <i class="fas fa-truck-loading fa-3x text-primary"></i>
+                                            </div>
+                                            <h5>GHTK</h5>
+                                            <div class="badge bg-primary text-white mt-2">Phủ sóng vùng xa</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card shadow-sm">
+                        <div class="section-header">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h4 class="mb-0">3. Chính sách giao hàng</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex">
+                                    <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                                    <div>
+                                        <strong>Cam kết thời gian:</strong> Laptop Store cam kết giao hàng đúng thời gian quy định. Nếu có sự chậm trễ, chúng tôi sẽ thông báo đến khách hàng và có phương án bồi thường phù hợp.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                                    <div>
+                                        <strong>Thời gian tính toán:</strong> Thời gian giao hàng được tính từ khi đơn hàng được xác nhận, không bao gồm thứ 7, chủ nhật và các ngày lễ.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                                    <div>
+                                        <strong>Theo dõi đơn hàng:</strong> Khách hàng có thể theo dõi tình trạng đơn hàng thông qua tin nhắn SMS hoặc tài khoản trên website Laptop Store.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section-card shadow-sm">
+                        <div class="section-header">
+                            <i class="fas fa-tasks"></i>
+                            <h4 class="mb-0">4. Quy trình giao nhận</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-0 text-center">
+                                <div class="col-md-3">
+                                    <div class="delivery-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <h5>Bước 1</h5>
+                                        <p class="mb-0">Đặt hàng và thanh toán</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="delivery-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-box"></i>
+                                        </div>
+                                        <h5>Bước 2</h5>
+                                        <p class="mb-0">Xác nhận và đóng gói</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="delivery-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <h5>Bước 3</h5>
+                                        <p class="mb-0">Vận chuyển hàng hóa</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="delivery-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <h5>Bước 4</h5>
+                                        <p class="mb-0">Giao hàng và xác nhận</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card shadow-sm">
+                        <div class="section-header">
+                            <i class="fas fa-search"></i>
+                            <h4 class="mb-0">5. Chính sách kiểm tra hàng hóa</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Laptop Store luôn hỗ trợ khách hàng kiểm tra hàng hóa trước khi thanh toán:</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm mb-3">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-primary p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                                        <i class="fas fa-box-open text-white fa-2x"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h5>Kiểm tra bên ngoài</h5>
+                                                    <p class="mb-0">Khách hàng có quyền kiểm tra bên ngoài của sản phẩm khi nhận hàng.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm mb-3">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-success p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                                        <i class="fas fa-laptop text-white fa-2x"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h5>Kiểm tra sản phẩm</h5>
+                                                    <p class="mb-0">Đối với các sản phẩm laptop, khách hàng có thể mở máy để kiểm tra tổng quát.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm mb-3">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-danger p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                                        <i class="fas fa-exclamation-triangle text-white fa-2x"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h5>Từ chối nhận hàng</h5>
+                                                    <p class="mb-0">Quý khách có quyền từ chối nhận hàng nếu phát hiện sản phẩm bị hư hỏng.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4 d-flex shadow-sm">
+                        <i class="fas fa-headset fa-2x me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-1">Cần hỗ trợ thêm?</h5>
+                            <p class="mb-0">Mọi thắc mắc về chính sách vận chuyển, vui lòng liên hệ tổng đài <span class="fw-bold">1900 1234</span> hoặc email <a href="mailto:contact@laptopstore.com">contact@laptopstore.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

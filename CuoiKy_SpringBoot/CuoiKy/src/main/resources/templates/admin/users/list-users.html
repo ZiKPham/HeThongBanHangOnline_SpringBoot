@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <title>Quản lý người dùng</title>
+    <!-- Custom styles -->
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/admin/css/list-users.css}">
+    </th:block>
+</head>
+
+<body>
+    <!-- Thêm CSRF Meta -->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    
+    <div layout:fragment="main-content">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Quản lý người dùng</h1>
+            <a th:href="@{/admin/users/add}" class="btn btn-primary btn-sm shadow-sm">
+                <i class="fas fa-user-plus fa-sm"></i> Thêm người dùng mới
+            </a>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success != null}">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}">Thao tác thành công!</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${error != null}">
+            <i class="fas fa-exclamation-circle"></i> <span th:text="${error}">Đã xảy ra lỗi!</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <!-- Search Section -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Tìm kiếm</h6>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/admin/users}" method="get" class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="search">Tìm kiếm</label>
+                        <input type="text" class="form-control" id="search" name="search" 
+                               placeholder="Tên đăng nhập, họ tên, email..." th:value="${param.search}">
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="sort">Sắp xếp</label>
+                        <select class="form-control" id="sort" name="sort">
+                            <option value="username_asc" th:selected="${sort == 'username_asc'}">Tên đăng nhập (A-Z)</option>
+                            <option value="username_desc" th:selected="${sort == 'username_desc'}">Tên đăng nhập (Z-A)</option>
+                            <option value="fullname_asc" th:selected="${sort == 'fullname_asc'}">Họ tên (A-Z)</option>
+                            <option value="fullname_desc" th:selected="${sort == 'fullname_desc'}">Họ tên (Z-A)</option>
+                            <option value="email_asc" th:selected="${sort == 'email_asc'}">Email (A-Z)</option>
+                            <option value="email_desc" th:selected="${sort == 'email_desc'}">Email (Z-A)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label class="d-block">&nbsp;</label>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-search fa-sm"></i> Tìm kiếm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Users List -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Tùy chọn:</div>
+                        <a class="dropdown-item" href="#" onClick="window.print()">
+                            <i class="fas fa-print fa-sm fa-fw mr-2 text-gray-400"></i>
+                            In danh sách
+                        </a>
+                        <a class="dropdown-item" href="#" id="exportToExcel">
+                            <i class="fas fa-file-excel fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Xuất Excel
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="usersTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Avatar</th>
+                                <th>Tên đăng nhập</th>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="user : ${users}">
+                                <td class="text-center">
+                                    <div class="user-avatar" th:text="${user.username != null && !user.username.isEmpty() ? #strings.toUpperCase(#strings.substring(user.username, 0, 1)) : 'U'}">A</div>
+                                </td>
+                                <td th:text="${user.username}">username</td>
+                                <td th:text="${user.fullname}">Họ tên</td>
+                                <td th:text="${user.email}">email@example.com</td>
+                                <td th:text="${user.phone}">0987654321</td>
+                                <td class="text-center">
+                                    <span th:if="${user.enabled}" class="badge badge-success">Hoạt động</span>
+                                    <span th:unless="${user.enabled}" class="badge badge-danger">Đã khóa</span>
+                                </td>
+                                <td class="action-buttons text-center">
+                                    <a th:href="@{/admin/users/{username}/edit(username=${user.username})}" 
+                                       class="btn btn-info btn-sm" data-toggle="tooltip" title="Chỉnh sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a th:href="@{/admin/users/{username}/view(username=${user.username})}" 
+                                       class="btn btn-primary btn-sm" data-toggle="tooltip" title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger btn-sm" 
+                                            th:attr="data-username=${user.username}"
+                                            onclick="deleteUser(this.getAttribute('data-username'))"
+                                            data-toggle="tooltip" title="Xóa">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr th:if="${users.empty}">
+                                <td colspan="7" class="text-center">Không có người dùng nào!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Scripts -->
+    <th:block layout:fragment="script">
+        <script th:src="@{/admin/js/list-users.js}"></script>
+    </th:block>
+</body>
+</html> 

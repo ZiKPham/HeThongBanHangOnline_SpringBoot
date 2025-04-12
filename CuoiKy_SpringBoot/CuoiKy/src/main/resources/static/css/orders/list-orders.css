@@ -1,0 +1,43 @@
+.content-wrapper {
+    min-height: calc(90vh - 300px);
+    display: flex;
+    flex-direction: column;
+}
+
+.orders-container {
+    flex: 1;
+}
+
+.order-table {
+    margin-top: 20px;
+}
+
+.status-pending {
+    color: #ff8800;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-cancelled {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.btn-action {
+    margin: 0 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-wrapper {
+        min-height: calc(90vh - 200px);
+    }
+    
+    .order-table {
+        margin-top: 15px;
+    }
+} 

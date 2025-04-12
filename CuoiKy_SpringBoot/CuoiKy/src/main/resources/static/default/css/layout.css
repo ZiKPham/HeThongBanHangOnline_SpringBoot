@@ -1,0 +1,260 @@
+:root {
+    --orange: #ff6b35;
+    --cream: #fff0e6;
+}
+
+.bg-orange {
+    background-color: var(--orange) !important;
+}
+
+.bg-cream {
+    background-color: var(--cream) !important;
+}
+
+.text-orange {
+    color: var(--orange) !important;
+}
+
+.border-orange-10 {
+    border-color: rgba(255, 107, 53, 0.1) !important;
+}
+
+.btn-orange {
+    background-color: var(--orange);
+    border-color: var(--orange);
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: #e55a2b;
+    border-color: #e55a2b;
+    color: white;
+}
+
+.btn-outline-orange {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+.btn-outline-orange:hover {
+    background-color: var(--orange);
+    color: white;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-item button {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.search-form {
+    min-width: 300px;
+}
+
+/* Header Styles */
+header.sticky-top {
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+header .container {
+    position: relative;
+}
+
+header .logo-circle {
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+}
+
+header .logo-circle:hover {
+    transform: scale(1.05);
+}
+
+header nav ul li a {
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--orange);
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover:after,
+header nav ul li a.text-orange:after {
+    width: 100%;
+}
+
+header .input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+header .input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+header .dropdown-menu {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+}
+
+header .dropdown-menu .dropdown-item {
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+    transition: background-color 0.2s ease;
+}
+
+header .dropdown-menu .dropdown-item:last-child {
+    margin-bottom: 0;
+}
+
+header .dropdown-menu .dropdown-item:hover {
+    background-color: var(--cream);
+}
+
+header .dropdown-divider {
+    border-color: rgba(255, 107, 53, 0.1);
+    margin: 0.5rem 0;
+}
+
+header .btn {
+    transition: all 0.3s ease;
+}
+
+header .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer Styles */
+footer {
+    position: relative;
+}
+
+footer h5.fw-bold {
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+footer h5.fw-bold:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background-color: var(--orange);
+    bottom: 0;
+    left: 0;
+}
+
+footer ul li a {
+    position: relative;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+
+footer ul li a:hover {
+    color: var(--orange) !important;
+    padding-left: 5px;
+}
+
+footer .border-top {
+    transition: border-color 0.3s ease;
+}
+
+footer:hover .border-top {
+    border-color: var(--orange) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header .logo-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    footer h5.fw-bold {
+        margin-top: 1.5rem;
+    }
+    
+    footer h5.fw-bold:first-of-type {
+        margin-top: 0;
+    }
+}
+
+/* Additional utility classes */
+.text-white-90 {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.text-white-80 {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bg-white-10 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-white-20 {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-white-20 {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+}
+
+.fs-7 {
+    font-size: 0.875rem !important;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.max-width-md {
+    max-width: 28rem;
+}
+
+.max-width-xl {
+    max-width: 72rem;
+}
+
+.object-fit-contain {
+    object-fit: contain;
+}
+
+.rotate-negative-5 {
+    transform: rotate(-5deg);
+}
+
+.z-index-1 {
+    z-index: 1;
+} 

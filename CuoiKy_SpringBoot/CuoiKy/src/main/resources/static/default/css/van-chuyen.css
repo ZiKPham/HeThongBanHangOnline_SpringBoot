@@ -1,0 +1,192 @@
+/* Vận chuyển page styles */
+:root {
+  --orange: #FF6B35;
+  --orange-light: #FF8C61;
+  --orange-dark: #E55A2B;
+  --cream: #FFF8F0;
+  --cream-dark: #F5EBE0;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 5px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--cream);
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  border: none;
+  background-color: var(--orange) !important;
+}
+
+.alert-primary {
+  background-color: rgba(255, 107, 53, 0.1);
+  border-color: var(--orange-light);
+  color: var(--orange-dark);
+}
+
+.section-card {
+  border: none;
+  border-radius: 1rem;
+  background-color: white;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.section-header {
+  background-color: var(--orange);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-header i {
+  font-size: 1.5rem;
+}
+
+.section-header h4 {
+  margin: 0;
+}
+
+.pricing-table {
+  box-shadow: var(--shadow-sm);
+}
+
+.pricing-table th {
+  background-color: var(--cream-dark) !important;
+  color: var(--orange-dark);
+  font-weight: 600;
+}
+
+.pricing-row {
+  transition: background-color 0.3s ease;
+}
+
+.pricing-row:hover {
+  background-color: rgba(255, 107, 53, 0.05);
+}
+
+.shipping-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+.shipping-badge.free {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.shipping-badge.paid {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.shipping-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shipping-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.shipping-card .card-body {
+  padding: 1.5rem;
+}
+
+.list-group-item {
+  padding: 1rem 1.25rem;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.list-group-item i {
+  color: var(--orange);
+  transition: transform 0.3s ease;
+}
+
+.list-group-item:hover i {
+  transform: translateX(5px);
+}
+
+.delivery-step {
+  padding: 1.5rem 1rem;
+  position: relative;
+}
+
+.delivery-step:not(:last-child):after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--orange-light);
+  transform: translateY(-50%);
+}
+
+.step-icon {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: var(--orange);
+  color: white;
+  font-size: 1.75rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.delivery-step:hover .step-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.delivery-step h5 {
+  color: var(--orange-dark);
+  font-weight: 600;
+}
+
+.alert-info {
+  border-left: 4px solid var(--orange);
+  background-color: rgba(255, 107, 53, 0.05);
+  color: var(--orange-dark);
+}
+
+.bg-primary {
+  background-color: var(--orange) !important;
+}
+
+.text-primary {
+  color: var(--orange) !important;
+}
+
+@media (max-width: 768px) {
+  .delivery-step:not(:last-child):after {
+    display: none;
+  }
+} 

@@ -1,0 +1,566 @@
+/* Homepage Styles - Modern E-commerce Design */
+
+/* ===== VARIABLES ===== */
+:root {
+  --orange: #FF6B35;
+  --orange-light: #FF8C61;
+  --orange-dark: #E55A2B;
+  --cream: #FFF8F0;
+  --cream-dark: #F5EBE0;
+  --secondary: #444444;
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-90: rgba(255, 255, 255, 0.9);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 5px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  
+  /* Policy Pages Colors */
+  --primary: #0d6efd;
+  --primary-dark: #0a58ca;
+  --primary-light: #6ea8fe;
+  --success: #198754;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --info: #0dcaf0;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-800: #343a40;
+}
+
+/* ===== GENERAL STYLES ===== */
+body {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  overflow-x: hidden;
+  animation: fadeInPage 1s ease;
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.text-orange {
+  color: var(--orange) !important;
+}
+
+.text-white-90 {
+  color: var(--white-90);
+}
+
+.btn-orange {
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-orange:hover {
+  background-color: var(--orange-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-white-20 {
+  background-color: var(--white-20);
+  color: white;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-white-20:hover {
+  background-color: var(--white-10);
+}
+
+.btn-light {
+  transition: var(--transition);
+}
+
+.btn-light:hover {
+  transform: translateY(-2px);
+}
+
+.rounded-4 {
+  border-radius: 1rem;
+}
+
+.rotate-negative-5 {
+  transform: rotate(-5deg);
+}
+
+.max-width-md {
+  max-width: 420px;
+}
+
+.max-width-xl {
+  max-width: 1140px;
+}
+
+.object-fit-contain {
+  object-fit: contain;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 0.2em;
+}
+
+.fs-7 {
+  font-size: 0.875rem;
+}
+
+.tracking-wider {
+  letter-spacing: 0.1em;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background-color: var(--cream-dark);
+  z-index: 0;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 300px;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 0px var(--cream-dark);
+}
+
+/* ===== PRODUCT CARD ===== */
+.card {
+  transition: var(--transition);
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image-container {
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover .product-image-container {
+  background-color: var(--cream-dark);
+}
+
+.card:hover .product-image-container img {
+  transform: scale(1.1);
+}
+
+.card .product-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+/* ===== FEATURED BRANDS SECTION ===== */
+.bg-orange {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-orange::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--orange-light);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.bg-orange::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background-color: var(--orange-light);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* ===== TESTIMONIALS ===== */
+.card-text {
+  font-style: italic;
+  position: relative;
+}
+
+.card-text::before {
+  content: '"';
+  font-size: 4rem;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  opacity: 0.1;
+  color: var(--orange);
+}
+
+.rounded-circle.bg-light {
+  background-image: url('https://i.pravatar.cc/64');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--orange);
+  box-shadow: 0 3px 10px rgba(255, 107, 53, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover .rounded-circle.bg-light {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.card-body p.fw-medium {
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-body p.fw-medium {
+  color: var(--orange);
+}
+
+.card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.card-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background-color: var(--orange);
+  opacity: 0.05;
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.card:hover .card-body::after {
+  width: 120px;
+  height: 120px;
+  opacity: 0.1;
+}
+
+/* ===== ACCORDION ===== */
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button::after {
+  filter: brightness(10);
+}
+
+.accordion-item {
+  transition: var(--transition);
+}
+
+.accordion-item:hover {
+  background-color: var(--white-10);
+  border-radius: 0.5rem;
+}
+
+.accordion-body {
+  padding-left: 20px;
+  position: relative;
+}
+
+.accordion-body::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: white;
+  opacity: 0.5;
+  border-radius: 3px;
+}
+
+/* ===== CREDIT CARD ===== */
+.credit-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.credit-card:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.credit-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.credit-card .bg-orange {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.credit-card:hover .bg-orange {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.credit-card .font-monospace {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.credit-card:hover .font-monospace {
+  color: var(--orange);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .btn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-section p {
+  animation-delay: 0.2s;
+}
+
+.hero-section .btn {
+  animation-delay: 0.4s;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section::after {
+    width: 100%;
+    height: 40%;
+    top: 60%;
+    border-radius: 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+  
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-dark);
+}
+
+/* ===== PAGE LOADING ANIMATION ===== */
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== FEATURED PRODUCT CARD ===== */
+.featured-product-card {
+  transform: translateY(0);
+  transition: transform 0.5s ease;
+}
+
+.featured-product-card:hover {
+  transform: translateY(-15px);
+}
+
+.badge.bg-light {
+  background: linear-gradient(to right, var(--orange-light), var(--orange)) !important;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+}
+
+/* ===== STAR RATING ===== */
+.text-warning .fas.fa-star {
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.card:hover .text-warning .fas.fa-star {
+  color: #FFD700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.text-warning .fas.fa-star:nth-child(1) { transition-delay: 0.0s; }
+.text-warning .fas.fa-star:nth-child(2) { transition-delay: 0.1s; }
+.text-warning .fas.fa-star:nth-child(3) { transition-delay: 0.2s; }
+.text-warning .fas.fa-star:nth-child(4) { transition-delay: 0.3s; }
+.text-warning .fas.fa-star:nth-child(5) { transition-delay: 0.4s; }
+
+.card:hover .text-warning .fas.fa-star:nth-child(1) { transform: scale(1.2); }
+.card:hover .text-warning .fas.fa-star:nth-child(2) { transform: scale(1.3); }
+.card:hover .text-warning .fas.fa-star:nth-child(3) { transform: scale(1.4); }
+.card:hover .text-warning .fas.fa-star:nth-child(4) { transform: scale(1.3); }
+.card:hover .text-warning .fas.fa-star:nth-child(5) { transform: scale(1.2); }
+
+/* ===== FOOTER STYLES ===== */
+footer .text-decoration-none {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+footer .text-decoration-none::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--orange);
+  transition: width 0.3s ease;
+}
+
+footer .text-decoration-none:hover {
+  color: var(--orange) !important;
+  transform: translateX(5px);
+}
+
+footer .text-decoration-none:hover::after {
+  width: 100%;
+}
+
+footer .fab {
+  transition: all 0.3s ease;
+}
+
+footer .fab:hover {
+  color: var(--orange) !important;
+  transform: translateY(-5px);
+}
+
+footer .btn-orange {
+  transition: all 0.3s ease;
+}
+
+footer .btn-orange:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+footer .border-orange-10 {
+  border-color: rgba(255, 107, 53, 0.1) !important;
+}
+
+/* Add animation for form */
+footer form {
+  position: relative;
+  overflow: hidden;
+}
+
+footer form input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.25);
+}
+
+/* Hover effect for column headers */
+footer h5 {
+  position: relative;
+  display: inline-block;
+}
+
+footer h5::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  bottom: -8px;
+  left: 0;
+  background-color: var(--orange);
+  transition: width 0.3s ease;
+}
+
+footer h5:hover::after {
+  width: 100%;
+} 

@@ -1,0 +1,31 @@
+.preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.image-preview {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.required::after {
+    content: " *";
+    color: red;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    display: block;
+} 

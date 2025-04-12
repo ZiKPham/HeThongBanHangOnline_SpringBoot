@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/default/css/layout.css}">
+</head>
+<body>
+    <header th:fragment="header" class="sticky-top bg-cream border-bottom border-orange-10">
+        <div class="container py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <a href="/" class="text-decoration-none">
+                        <div class="logo-circle bg-orange text-white d-flex align-items-center justify-content-center">
+                            <span class="fw-bold">Z</span>
+                        </div>
+                    </a>
+                    <nav class="d-none d-md-flex ms-4">
+                        <ul class="list-unstyled d-flex mb-0">
+                            <li class="me-4"><a th:href="@{/}" class="text-orange text-decoration-none fw-medium fs-6">Home</a></li>
+                            <li class="me-4"><a th:href="@{/shop/about}" class="text-secondary text-decoration-none fs-6">About</a></li>
+                            <li class="me-4"><a th:href="@{/shop/products}" class="text-secondary text-decoration-none fs-6">Shop</a></li>
+                            <li><a th:href="@{/shop/contact}" class="text-secondary text-decoration-none fs-6">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Search Form -->
+                        <form th:action="@{/shop/products/search}" method="get" class="d-none d-md-flex">
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                                <button class="btn btn-orange" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Cart Button -->
+                        <a th:href="@{/shop/cart}" class="btn btn-outline-orange position-relative">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+                                  th:if="${session.cartItemCount != null && session.cartItemCount > 0}"
+                                  th:text="${session.cartItemCount}">
+                            </span>
+                        </a>
+
+                        <!-- User Section -->
+                        <div class="d-flex align-items-center" th:if="${#authorization.expression('isAuthenticated()')}">
+                            <!-- User Dropdown -->
+                            <div class="dropdown">
+                                <button class="btn btn-outline-orange dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user me-1"></i>
+                                    <span th:text="${#authentication.principal.username}">Username</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/account}">
+                                            <i class="fas fa-user-cog me-2"></i>Quản lý tài khoản
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/shop/orders}">
+                                            <i class="fas fa-box me-2"></i>Đơn hàng của tôi
+                                        </a>
+                                    </li>
+                                    <li th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+                                        <a class="dropdown-item" th:href="@{/admin}">
+                                            <i class="fas fa-tools me-2"></i>Quản trị hệ thống
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form th:action="@{/logout}" method="post" class="dropdown-item">
+                                            <button type="submit" class="btn btn-link text-danger p-0">
+                                                <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Login/Register Buttons for non-authenticated users -->
+                        <div class="d-flex gap-2" th:unless="${#authorization.expression('isAuthenticated()')}">
+                            <a th:href="@{/login}" class="btn btn-outline-orange">
+                                <i class="fas fa-sign-in-alt me-1"></i> Đăng nhập
+                            </a>
+                            <a th:href="@{/register}" class="btn btn-orange">
+                                <i class="fas fa-user-plus me-1"></i> Đăng ký
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <button class="btn btn-link text-secondary ms-3 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                        <i class="fas fa-bars fs-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Offcanvas -->
+        <div class="offcanvas offcanvas-end bg-cream" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+            <div class="offcanvas-header border-bottom border-orange-10">
+                <h5 class="offcanvas-title text-orange" id="mobileMenuLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="d-flex flex-column">
+                    <!-- Mobile Search -->
+                    <form th:action="@{/shop/products/search}" method="get" class="mb-4">
+                        <div class="input-group">
+                            <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                            <button class="btn btn-orange" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Mobile Nav Links -->
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a th:href="@{/}" class="text-orange text-decoration-none fw-medium fs-6">Home</a></li>
+                        <li class="mb-3"><a th:href="@{/shop/about}" class="text-secondary text-decoration-none fs-6">About</a></li>
+                        <li class="mb-3"><a th:href="@{/shop/products}" class="text-secondary text-decoration-none fs-6">Shop</a></li>
+                        <li><a th:href="@{/shop/contact}" class="text-secondary text-decoration-none fs-6">Contact Us</a></li>
+                    </ul>
+                    
+                    <!-- Mobile User Actions -->
+                    <div class="d-flex flex-column gap-2">
+                        <a th:href="@{/shop/cart}" class="btn btn-outline-orange">
+                            <i class="fas fa-shopping-cart me-2"></i> Giỏ hàng
+                            <span class="badge bg-danger ms-1" 
+                                  th:if="${session.cartItemCount != null && session.cartItemCount > 0}"
+                                  th:text="${session.cartItemCount}">
+                            </span>
+                        </a>
+                        
+                        <div th:if="${#authorization.expression('isAuthenticated()')}">
+                            <a th:href="@{/account}" class="btn btn-outline-orange mb-2">
+                                <i class="fas fa-user-cog me-2"></i>Quản lý tài khoản
+                            </a>
+                            <a th:href="@{/shop/orders}" class="btn btn-outline-orange mb-2">
+                                <i class="fas fa-box me-2"></i>Đơn hàng của tôi
+                            </a>
+                            <a th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" 
+                               th:href="@{/admin}" class="btn btn-outline-orange mb-2">
+                                <i class="fas fa-tools me-2"></i>Quản trị hệ thống
+                            </a>
+                            <form th:action="@{/logout}" method="post">
+                                <button type="submit" class="btn btn-danger w-100">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div th:unless="${#authorization.expression('isAuthenticated()')}">
+                            <a th:href="@{/login}" class="btn btn-outline-orange mb-2 w-100">
+                                <i class="fas fa-sign-in-alt me-2"></i> Đăng nhập
+                            </a>
+                            <a th:href="@{/register}" class="btn btn-orange w-100">
+                                <i class="fas fa-user-plus me-2"></i> Đăng ký
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

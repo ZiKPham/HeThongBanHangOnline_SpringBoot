@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/default/css/layout.css}">
+</head>
+<body>
+    <footer th:fragment="footer" class="bg-cream py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Our Company -->
+                <div class="col-md-3 col-sm-6">
+                    <h5 class="fw-bold text-orange mb-4">Our Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a th:href="@{/shop/about}" class="text-secondary text-decoration-none fs-6">About Us</a></li>
+                        <li class="mb-2"><a th:href="@{/shop/contact}" class="text-secondary text-decoration-none fs-6">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">Press</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none fs-6">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Support -->
+                <div class="col-md-3 col-sm-6">
+                    <h5 class="fw-bold text-orange mb-4">Customer Support</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a th:href="@{/shop/bao-hanh}" class="text-secondary text-decoration-none fs-6">Warranty Policy</a></li>
+                        <li class="mb-2"><a th:href="@{/shop/doi-tra}" class="text-secondary text-decoration-none fs-6">Return Policy</a></li>
+                        <li class="mb-2"><a th:href="@{/shop/van-chuyen}" class="text-secondary text-decoration-none fs-6">Shipping Info</a></li>
+                        <li class="mb-2"><a th:href="@{/shop/thanh-toan}" class="text-secondary text-decoration-none fs-6">Payment Methods</a></li>
+                        <li><a th:href="@{/shop/news-tech}" class="text-secondary text-decoration-none fs-6">Tech News</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Help Center -->
+                <div class="col-md-3 col-sm-6">
+                    <h5 class="fw-bold text-orange mb-4">Help Center</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">Contact Support</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">Track Order</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none fs-6">Service Centers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div class="col-md-3 col-sm-6">
+                    <h5 class="fw-bold text-orange mb-4">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none fs-6">Cookie Policy</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none fs-6">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Newsletter & Social Media -->
+            <div class="row g-4 mt-2">
+                <!-- Newsletter -->
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-orange mb-3">Stay Updated</h5>
+                    <p class="text-secondary mb-3 fs-6">Subscribe to our newsletter for the latest products and offers.</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email address">
+                        <button class="btn btn-orange" type="submit">Subscribe</button>
+                    </form>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="col-md-6 text-md-end mt-4 mt-md-0">
+                    <h5 class="fw-bold text-orange mb-3">Connect With Us</h5>
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <a href="#" class="text-secondary fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-top border-orange-10 mt-5 pt-4 text-center">
+                <p class="text-secondary mb-0 fs-6">
+                    Copyright © 2025 Laptop Premium. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

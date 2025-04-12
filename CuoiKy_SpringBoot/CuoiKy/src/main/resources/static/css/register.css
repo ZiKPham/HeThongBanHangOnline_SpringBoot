@@ -1,0 +1,217 @@
+.register-page {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.register-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.register-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.register-logo {
+    width: 70px;
+    height: 70px;
+    background: #ff6b35;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+}
+
+.register-logo i {
+    font-size: 2rem;
+    color: white;
+}
+
+.register-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 0.5rem;
+}
+
+.register-subtitle {
+    color: #636e72;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.register-form .form-label {
+    color: #2d3436;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.register-form .input-group {
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.register-form .input-group-text {
+    background-color: white;
+    border: none;
+    color: #ff6b35;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    min-width: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.register-form .form-control {
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    background: white;
+}
+
+.register-form .form-control:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.register-form .form-control::placeholder {
+    color: #b2bec3;
+}
+
+.register-form .password-toggle {
+    background: white;
+    border: none;
+    color: #ff6b35;
+    padding: 0 1rem;
+}
+
+.register-form .password-toggle:hover {
+    background: white;
+    color: #e85a2c;
+}
+
+.register-form .form-check {
+    margin: 1.2rem 0;
+}
+
+.register-form .form-check-input:checked {
+    background-color: #ff6b35;
+    border-color: #ff6b35;
+}
+
+.register-form .btn-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    margin: 0.8rem 0;
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+    transition: all 0.3s ease;
+}
+
+.register-form .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
+    background: linear-gradient(135deg, #e85a2c 0%, #ff7b35 100%);
+}
+
+.register-form .login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #636e72;
+}
+
+.register-form .login-link a {
+    color: #ff6b35;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-form .login-link a:hover {
+    color: #e85a2c;
+}
+
+.register-form .alert {
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.register-form .alert i {
+    font-size: 1.1rem;
+    margin-right: 0.8rem;
+}
+
+.register-form .alert-danger {
+    background-color: #fff5f5;
+    color: #e53e3e;
+}
+
+.register-form .invalid-feedback {
+    font-size: 0.85rem;
+    color: #e53e3e;
+}
+
+.text-danger {
+    color: #e53e3e;
+}
+
+/* Additional styles from register.html */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .register-container {
+        padding: 0 0.5rem;
+    }
+    
+    .register-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .register-title {
+        font-size: 1.6rem;
+    }
+    
+    .register-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .register-logo i {
+        font-size: 1.8rem;
+    }
+}

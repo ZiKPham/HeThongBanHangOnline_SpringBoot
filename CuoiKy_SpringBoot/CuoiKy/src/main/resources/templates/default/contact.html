@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <title>Liên hệ với chúng tôi - Laptop Store</title>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/static/default/css/contact.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 animated fadeInUp">
+                        <h1 class="display-4">Liên Hệ Với Chúng Tôi</h1>
+                        <p class="lead">
+                            Bạn có câu hỏi hoặc cần hỗ trợ? Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy gửi tin nhắn cho chúng tôi và nhận phản hồi sớm nhất có thể.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact Information -->
+                    <div class="col-lg-4 mb-4 mb-lg-0 animated fadeInUp delay-1">
+                        <div class="card contact-card h-100">
+                            <div class="card-body">
+                                <h3 class="h4">Thông Tin Liên Hệ</h3>
+                                
+                                <div class="contact-info-item">
+                                    <div class="contact-icon-box">
+                                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5 class="contact-info-title">Địa Chỉ</h5>
+                                        <p class="contact-info-text">97 Đường Cầu Giấy, Q. Cầu Giấy<br>Hà Nội, Việt Nam</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info-item">
+                                    <div class="contact-icon-box">
+                                        <i class="fas fa-phone-alt contact-icon"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5 class="contact-info-title">Điện Thoại</h5>
+                                        <p class="contact-info-text">+84 (123) 456-7890<br>+84 (987) 654-3210</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info-item">
+                                    <div class="contact-icon-box">
+                                        <i class="fas fa-envelope contact-icon"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5 class="contact-info-title">Email</h5>
+                                        <p class="contact-info-text">info@laptopstore.vn<br>support@laptopstore.vn</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info-item mt-4">
+                                    <div class="contact-icon-box">
+                                        <i class="fas fa-clock contact-icon"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5 class="contact-info-title">Giờ Làm Việc</h5>
+                                        <p class="contact-info-text">Thứ 2 - Thứ 6: 8:00 - 20:00<br>Thứ 7 - Chủ Nhật: 9:00 - 18:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="col-lg-8 animated fadeInUp delay-2">
+                        <div class="card contact-card">
+                            <div class="card-body">
+                                <h3 class="h4">Gửi Tin Nhắn Cho Chúng Tôi</h3>
+                                <form th:action="@{/contact}" method="post" class="contact-form">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <label for="name" class="form-label">Họ và Tên</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Nhập địa chỉ email của bạn" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">Số Điện Thoại</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="subject" class="form-label">Tiêu Đề</label>
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Nhập tiêu đề tin nhắn" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="message" class="form-label">Nội Dung</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Nhập nội dung tin nhắn của bạn" required></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-contact mt-2">
+                                                <i class="fas fa-paper-plane me-2"></i>Gửi Tin Nhắn
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section animated fadeInUp delay-3">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="h3 text-center fw-bold text-orange mb-4">Vị Trí Của Chúng Tôi</h2>
+                        <p class="text-center mb-5">Bạn có thể dễ dàng tìm thấy cửa hàng chúng tôi tại địa chỉ dưới đây</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div class="card map-card">
+                        <div class="card-body p-0">
+                            <div class="ratio ratio-21x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096966609148!2d105.78049731540215!3d21.038885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4cd0c66f05%3A0xea31563511af2e54!2zOTcgxJDGsOG7nW5nIEPhuqd1IEdp4bqleSwgUXVhbiBIb2EsIENhaSBEaW8sIFRwLiBIb2EgQmluLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1648123456789!5m2!1svi!2s" 
+                                       width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Media Section -->
+        <section class="social-media-section animated fadeInUp delay-3">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2 class="h3 text-center fw-bold text-orange mb-4">Kết Nối Với Chúng Tôi</h2>
+                        <p class="mb-4">Theo dõi chúng tôi trên các mạng xã hội để cập nhật tin tức và khuyến mãi mới nhất</p>
+                        
+                        <div class="d-flex justify-content-center my-4">
+                            <a href="#" class="social-icon" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Youtube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Zalo">
+                                <i class="fas fa-comment-alt"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p class="text-center">Đăng ký nhận thông tin khuyến mãi</p>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Nhập email của bạn">
+                                        <button class="btn btn-contact" type="button">Đăng ký</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <th:block layout:fragment="scripts">
+        <script th:src="@{/static/default/js/contact.js}"></script>
+    </th:block>
+</body>
+</html> 

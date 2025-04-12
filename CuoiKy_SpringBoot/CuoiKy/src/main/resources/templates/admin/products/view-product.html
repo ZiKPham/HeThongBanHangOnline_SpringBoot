@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+
+<head>
+    <title th:text="'Chi tiết sản phẩm: ' + ${product.name}">Chi tiết sản phẩm</title>
+    <!-- Custom styles -->
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/static/admin/css/view-product.css}">
+    </th:block>
+</head>
+
+<body>
+    <div layout:fragment="main-content">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Chi tiết sản phẩm</h1>
+            <div>
+                <a th:href="@{/admin/products/{id}/edit(id=${product.id})}" class="btn btn-info btn-sm shadow-sm">
+                    <i class="fas fa-edit fa-sm"></i> Chỉnh sửa
+                </a>
+                <a th:href="@{/admin/products}" class="btn btn-secondary btn-sm shadow-sm ml-2">
+                    <i class="fas fa-arrow-left fa-sm"></i> Quay lại
+                </a>
+            </div>
+        </div>
+
+        <!-- Success Alert -->
+        <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success != null}">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}">Thao tác thành công!</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <!-- Product Detail -->
+        <div class="row">
+            <!-- Product Image -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body text-center">
+                        <img th:if="${product.imageUrl != null}" th:src="${product.imageUrl}" 
+                             alt="Product Image" class="product-image mb-3">
+                        <img th:unless="${product.imageUrl != null}" src="/img/default-product.jpg" 
+                             alt="Default Product Image" class="product-image mb-3">
+                        <div class="mt-3">
+                            <span th:if="${product.stockQuantity > 0}" class="badge badge-success badge-stock">
+                                <i class="fas fa-check-circle"></i> Còn hàng
+                            </span>
+                            <span th:unless="${product.stockQuantity > 0}" class="badge badge-danger badge-stock">
+                                <i class="fas fa-times-circle"></i> Hết hàng
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Basic Information -->
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Thông tin cơ bản</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <span class="detail-label">ID:</span>
+                                <span th:text="${product.id}">1</span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <span class="detail-label">Danh mục:</span>
+                                <span th:text="${product.category.name() == 'LAPTOP_GAMING' ? 'Laptop Gaming' : 'Laptop Văn Phòng'}">
+                                    Laptop Gaming
+                                </span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <span class="detail-label">Tên sản phẩm:</span>
+                                <span th:text="${product.name}">Laptop Name</span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <span class="detail-label">Thương hiệu:</span>
+                                <span th:text="${product.brand}">Brand</span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <span class="detail-label">Giá bán:</span>
+                                <span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' đ'">
+                                    1,000,000 đ
+                                </span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <span class="detail-label">Số lượng tồn kho:</span>
+                                <span th:text="${product.stockQuantity}">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specifications -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Thông số kỹ thuật</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="specs-item">
+                            <span class="detail-label">CPU:</span>
+                            <span th:text="${product.cpu}">Intel Core i7</span>
+                        </div>
+                        <div class="specs-item">
+                            <span class="detail-label">RAM:</span>
+                            <span th:text="${product.ram}">16GB</span>
+                        </div>
+                        <div class="specs-item">
+                            <span class="detail-label">Ổ cứng:</span>
+                            <span th:text="${product.storage}">512GB SSD</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="specs-item">
+                            <span class="detail-label">Card đồ họa:</span>
+                            <span th:text="${product.gpu}">NVIDIA GeForce RTX 3060</span>
+                        </div>
+                        <div class="specs-item">
+                            <span class="detail-label">Kích thước màn hình:</span>
+                            <span th:text="${product.screenSize}">15.6 inch</span>
+                        </div>
+                        <div class="specs-item">
+                            <span class="detail-label">Thời lượng pin:</span>
+                            <span th:text="${product.batteryLife}">5 giờ</span>
+                        </div>
+                        <div class="specs-item">
+                            <span class="detail-label">Trọng lượng:</span>
+                            <span th:text="${product.weight + ' kg'}">2.1 kg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <title>Danh sách đơn hàng</title>
+    <th:block layout:fragment="additionalStyles">
+        <link rel="stylesheet" th:href="@{/static/css/orders/list-orders.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container orders-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Đơn hàng của tôi</li>
+                        </ol>
+                    </nav>
+                    
+                    <h2 class="mb-4">Danh sách đơn hàng của bạn</h2>
+                    
+                    <div th:if="${orders == null || #lists.isEmpty(orders)}" class="order-empty">
+                        <div class="alert alert-info">
+                            <h4>Bạn chưa có đơn hàng nào</h4>
+                            <p>Hãy mua sắm và đặt đơn hàng đầu tiên của bạn.</p>
+                            <a th:href="@{/products/list}" class="btn btn-primary mt-3">Mua sắm ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div th:if="${orders != null && !#lists.isEmpty(orders)}" class="order-table">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Mã đơn hàng</th>
+                                        <th>Ngày đặt</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="order : ${orders}">
+                                        <td th:text="${'#' + order.orderId}"></td>
+                                        <td th:text="${#temporals.format(order.orderDate, 'dd/MM/yyyy HH:mm')}"></td>
+                                        <td th:text="${#numbers.formatDecimal(order.totalAmount, 0, 'COMMA', 0, 'POINT') + ' VNĐ'}"></td>
+                                        <td>
+                                            <span th:class="${'status-' + #strings.toLowerCase(order.status)}"
+                                                  th:text="${order.status}">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a th:href="@{/shop/orders/detail/{id}(id=${order.orderId})}" 
+                                               class="btn btn-sm btn-info btn-action">
+                                               <i class="fas fa-eye"></i> Chi tiết
+                                            </a>
+                                            <a th:if="${order.status == 'PENDING'}" 
+                                               th:href="@{/shop/orders/cancel/{id}(id=${order.orderId})}"
+                                               class="btn btn-sm btn-danger btn-action"
+                                               onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?')">
+                                               <i class="fas fa-times"></i> Hủy
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a th:href="@{/shop/products}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

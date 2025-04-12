@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương thức thanh toán - Laptop Store</title>
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/static/default/css/thanh-toan.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="content-wrapper">
+        <div class="container my-5">
+            <div class="card shadow-sm mb-5">
+                <div class="card-header bg-primary text-white py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-credit-card fa-2x me-3"></i>
+                        <h2 class="mb-0">Phương thức thanh toán</h2>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-primary d-flex" role="alert">
+                        <div class="me-3">
+                            <i class="fas fa-info-circle fa-2x"></i>
+                        </div>
+                        <div>
+                            <h5 class="alert-heading">Thanh toán an toàn & bảo mật</h5>
+                            <p class="mb-0">Laptop Store hỗ trợ nhiều phương thức thanh toán an toàn, linh hoạt, giúp bạn dễ dàng lựa chọn cách thức thanh toán phù hợp nhất.</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-header">
+                            <div class="counter">1</div>
+                            <h4>Thanh toán khi nhận hàng (COD)</h4>
+                        </div>
+                        <div class="payment-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center mb-4 mb-md-0">
+                                    <div class="payment-icon mx-auto mb-3" style="font-size: 36px; width: 80px; height: 80px;">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                    <h5>COD</h5>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>Quý khách có thể lựa chọn phương thức thanh toán khi nhận hàng (COD) khi mua sắm tại Laptop Store.</p>
+                                    <div class="alert alert-success">
+                                        <div class="d-flex">
+                                            <div class="me-3">
+                                                <i class="fas fa-thumbs-up"></i>
+                                            </div>
+                                            <div>
+                                                <strong>Ưu điểm:</strong> Đơn giản, thuận tiện, thanh toán sau khi kiểm tra hàng hóa.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-warning">
+                                        <div class="d-flex">
+                                            <div class="me-3">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div>
+                                                <strong>Lưu ý:</strong> Phương thức COD chỉ áp dụng cho đơn hàng có giá trị dưới 30 triệu đồng.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-header">
+                            <div class="counter">2</div>
+                            <h4>Thanh toán qua thẻ ngân hàng</h4>
+                        </div>
+                        <div class="payment-body">
+                            <p>Chúng tôi chấp nhận thanh toán qua tất cả các loại thẻ ATM nội địa, Visa, Master Card và JCB.</p>
+                            
+                            <div class="row credit-card-row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="payment-method-box">
+                                        <div class="payment-method-header">
+                                            <h5 class="mb-0">Thẻ quốc tế</h5>
+                                        </div>
+                                        <div class="payment-method-body">
+                                            <div class="card-logos">
+                                                <div class="card-logo-item">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" class="payment-card-img">
+                                                    <p class="mt-2 mb-0">Visa</p>
+                                                </div>
+                                                <div class="card-logo-item">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" class="payment-card-img">
+                                                    <p class="mt-2 mb-0">Mastercard</p>
+                                                </div>
+                                                <div class="card-logo-item">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/1280px-JCB_logo.svg.png" alt="JCB" class="payment-card-img">
+                                                    <p class="mt-2 mb-0">JCB</p>
+                                                </div>
+                                            </div>
+                                            <div class="fee-label">
+                                                <i class="fas fa-info-circle me-2"></i> Phí xử lý: <strong>Miễn phí</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="payment-method-box">
+                                        <div class="payment-method-header">
+                                            <h5 class="mb-0">Thẻ ATM nội địa</h5>
+                                        </div>
+                                        <div class="payment-method-body">
+                                            <div class="bank-icon-container">
+                                                <div class="bank-icon">
+                                                    <i class="fas fa-university"></i>
+                                                </div>
+                                                <p>Hỗ trợ thanh toán qua hơn 40 ngân hàng tại Việt Nam.</p>
+                                            </div>
+                                            <div class="fee-label">
+                                                <i class="fas fa-info-circle me-2"></i> Phí xử lý: <strong>Miễn phí</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-header">
+                            <div class="counter">3</div>
+                            <h4>Thanh toán qua ví điện tử</h4>
+                        </div>
+                        <div class="payment-body">
+                            <p>Chúng tôi hỗ trợ thanh toán qua các ví điện tử phổ biến tại Việt Nam.</p>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="payment-card wallet-card mb-4">
+                                        <div class="card-body text-center p-4">
+                                            <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" class="wallet-logo">
+                                            <h5>Ví MoMo</h5>
+                                            <hr>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="badge bg-danger px-3 py-2">
+                                                    <i class="fas fa-tags me-1"></i> Giảm 5% tối đa 100.000đ
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="payment-card wallet-card mb-4">
+                                        <div class="card-body text-center p-4">
+                                            <img src="data:image/png;base64,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" alt="ZaloPay" class="wallet-logo">
+                                            <h5>ZaloPay</h5>
+                                            <hr>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="badge bg-primary px-3 py-2">
+                                                    <i class="fas fa-tags me-1"></i> Giảm 5% tối đa 50.000đ
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="payment-card wallet-card mb-4">
+                                        <div class="card-body text-center p-4">
+                                            <img src="https://vinadesign.vn/uploads/thumbnails/800/2023/05/vnpay-logo-vinadesign-25-12-59-16.jpg" alt="VNPay" class="wallet-logo">
+                                            <h5>VNPay</h5>
+                                            <hr>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="badge bg-success px-3 py-2">
+                                                    <i class="fas fa-tags me-1"></i> Giảm 50.000đ cho đơn từ 5tr
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-header">
+                            <div class="counter">4</div>
+                            <h4>Chuyển khoản ngân hàng</h4>
+                        </div>
+                        <div class="payment-body">
+                            <p>Quý khách có thể thanh toán bằng cách chuyển khoản trực tiếp đến tài khoản ngân hàng của chúng tôi:</p>
+                            <div class="table-responsive mt-3">
+                                <table class="table table-bordered bank-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 20%">Ngân hàng</th>
+                                            <th style="width: 30%">Chủ tài khoản</th>
+                                            <th style="width: 25%">Số tài khoản</th>
+                                            <th style="width: 25%">Chi nhánh</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="me-2">
+                                                        <img src="https://static.wixstatic.com/media/9d8ed5_810e9e3b7fad40eca3ec5087da674662~mv2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9d8ed5_810e9e3b7fad40eca3ec5087da674662~mv2.png" alt="Vietcombank" width="40">
+                                                    </div>
+                                                    <span>Vietcombank</span>
+                                                </div>
+                                            </td>
+                                            <td>CÔNG TY TNHH LAPTOP STORE</td>
+                                            <td class="fw-bold">1234567890</td>
+                                            <td>TP. Hồ Chí Minh</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="me-2">
+                                                        <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/09/logo-techcombank-inkythuatso-10-15-17-50.jpg" alt="Techcombank" width="40">
+                                                    </div>
+                                                    <span>Techcombank</span>
+                                                </div>
+                                            </td>
+                                            <td>CÔNG TY TNHH LAPTOP STORE</td>
+                                            <td class="fw-bold">0987654321</td>
+                                            <td>TP. Hồ Chí Minh</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="alert alert-warning mt-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Nội dung chuyển khoản:</strong> [Mã đơn hàng] + [Số điện thoại]
+                                        <p class="small mb-0 mt-1">Ví dụ: <code>LS12345 0912345678</code></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-header">
+                            <div class="counter">5</div>
+                            <h4>Thanh toán trả góp</h4>
+                        </div>
+                        <div class="payment-body">
+                            <p>Laptop Store hỗ trợ mua trả góp qua thẻ tín dụng hoặc công ty tài chính với lãi suất ưu đãi:</p>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="payment-card mb-4">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-primary p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                                        <i class="fas fa-credit-card text-white fa-2x"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Trả góp qua thẻ tín dụng</h5>
+                                                    <p class="text-primary mb-0">Lãi suất 0% trong 6-12 tháng</p>
+                                                </div>
+                                            </div>
+                                            <p class="small mb-0">Áp dụng cho chủ thẻ tín dụng của các ngân hàng: Sacombank, VPBank, Citibank, HSBC, Shinhan Bank, Standard Chartered...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="payment-card mb-4">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-success p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                                        <i class="fas fa-landmark text-white fa-2x"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0">Trả góp qua công ty tài chính</h5>
+                                                    <p class="text-success mb-0">Lãi suất thấp, thời gian duyệt nhanh</p>
+                                                </div>
+                                            </div>
+                                            <p class="small mb-0">Áp dụng qua đối tác tài chính: Home Credit, FE Credit, HD Saison... Thủ tục đơn giản, duyệt vay nhanh chóng trong 15-30 phút.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4 d-flex shadow-sm">
+                        <i class="fas fa-headset fa-2x me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-1">Cần tư vấn thanh toán?</h5>
+                            <p class="mb-0">Mọi thắc mắc về phương thức thanh toán, vui lòng liên hệ tổng đài <span class="fw-bold">1900 1234</span> hoặc email <a href="mailto:contact@laptopstore.com">contact@laptopstore.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

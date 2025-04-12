@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default/layout}">
+<head>
+    <title>Chi tiết đơn hàng</title>
+    <th:block layout:fragment="additionalStyles">
+        <link rel="stylesheet" th:href="@{/static/css/orders/order-detail.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a th:href="@{/shop/orders}">Đơn hàng</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Chi tiết đơn hàng #<span th:text="${order.orderId}"></span></li>
+                        </ol>
+                    </nav>
+                    
+                    <div class="order-header">
+                        <h2>Chi tiết đơn hàng #<span th:text="${order.orderId}"></span></h2>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p><strong>Ngày đặt hàng:</strong> <span th:text="${#temporals.format(order.orderDate, 'dd/MM/yyyy HH:mm')}"></span></p>
+                                <p><strong>Trạng thái:</strong> 
+                                    <span th:class="${'status-' + #strings.toLowerCase(order.status)}"
+                                          th:text="${order.status}">
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <a th:if="${order.status == 'PENDING'}" 
+                                   th:href="@{/shop/orders/cancel/{id}(id=${order.orderId})}"
+                                   class="btn btn-danger"
+                                   onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?')">
+                                   <i class="fas fa-times"></i> Hủy đơn hàng
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <h4>Sản phẩm đã đặt</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="item : ${order.orderDetails}">
+                                        <td>
+                                            <a th:href="@{/shop/products/detail/{id}(id=${item.product.id})}" th:text="${item.product.name}"></a>
+                                        </td>
+                                        <td>
+                                            <img th:if="${item.product.imageUrl != null}" 
+                                                 th:src="@{${item.product.imageUrl}}" 
+                                                 class="product-image" alt="Product Image">
+                                            <img th:if="${item.product.imageUrl == null}" 
+                                                 th:src="@{/default/images/no-image.png}" 
+                                                 class="product-image" alt="No Image">
+                                        </td>
+                                        <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT') + ' VNĐ'}"></td>
+                                        <td th:text="${item.quantity}"></td>
+                                        <td th:text="${#numbers.formatDecimal(item.price * item.quantity, 0, 'COMMA', 0, 'POINT') + ' VNĐ'}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Tổng số lượng:</strong> <span th:text="${order.orderDetails.size()}"></span> sản phẩm</p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <h4>Tổng tiền: <span th:text="${#numbers.formatDecimal(order.totalAmount, 0, 'COMMA', 0, 'POINT') + ' VNĐ'}"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a th:href="@{/shop/orders}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Quay lại danh sách đơn hàng
+                        </a>
+                        <a th:href="@{/shop/products}" class="btn btn-primary ms-2">
+                            <i class="fas fa-shopping-cart"></i> Tiếp tục mua sắm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
